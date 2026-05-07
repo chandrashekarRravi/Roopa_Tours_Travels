@@ -1,0 +1,105 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { Phone, Menu, X } from "lucide-react";
+
+export default function Navbar() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+    
+    if (latest > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  });
+
+  const links = [
+    { name: "Home", href: "#" },
+    { name: "Packages", href: "#packages" },
+    { name: "Cab Services", href: "#cabs" },
+    { name: "Destinations", href: "#destinations" },
+  ];
+
+  return (
+    <>
+      <motion.nav
+        variants={{
+          visible: { y: 0 },
+          hidden: { y: "-100%" },
+        }}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
+        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${
+          scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+        }`}
+      >
+        <div className="font-playfair text-xl font-bold tracking-tight text-white md:text-2xl">
+          Roopa <span className="text-orange-400">Travels</span>
+        </div>
+
+        <div className="hidden items-center gap-8 md:flex">
+          {links.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="tel:+911234567890"
+            className="flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-md transition-colors hover:bg-white/20"
+          >
+            <Phone className="h-4 w-4" />
+            <span>Call Us</span>
+          </a>
+        </div>
+
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="p-2 text-zinc-300 md:hidden"
+        >
+          {mobileMenuOpen ? <X /> : <Menu />}
+        </button>
+      </motion.nav>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#0f172a] pt-24 px-6 md:hidden">
+          <div className="flex flex-col gap-6 text-xl">
+            {links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-medium text-zinc-300 hover:text-white"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a
+              href="tel:+911234567890"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 py-4 font-medium text-white"
+            >
+              <Phone className="h-5 w-5" />
+              <span>+91 123 456 7890</span>
+            </a>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
