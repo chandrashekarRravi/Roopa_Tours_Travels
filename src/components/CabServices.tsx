@@ -5,33 +5,29 @@ import { Car, Plane, Map as MapIcon, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 export default function CabServices() {
-  const features = [
-    {
-      icon: <Plane className="h-6 w-6 text-orange-400" />,
-      title: "Airport Transfers",
-      description: "Punctual pickup and drop-off at Mangalore International Airport.",
-    },
-    {
-      icon: <MapIcon className="h-6 w-6 text-orange-400" />,
-      title: "Local Sightseeing",
-      description: "Explore Mangalore and nearby areas with our experienced local drivers.",
-    },
-    {
-      icon: <Car className="h-6 w-6 text-orange-400" />,
-      title: "Outstation Trips",
-      description: "Comfortable long-distance travel to Udupi, Coorg, Chikmagalur, and beyond.",
-    },
-    {
-      icon: <ShieldCheck className="h-6 w-6 text-orange-400" />,
-      title: "Safe & Sanitized",
-      description: "Well-maintained, clean vehicles ensuring your safety and comfort.",
-    },
+  const dropServices = [
+    "Mangalore to Udupi, Manipal Drop & Pickup",
+    "Kollur Mookambika Pick up & Drop",
+    "Mangalore to Sringeri Drop & Pickup",
+    "Mangalore to Gokarna Drop & Pickup",
+    "Mangalore International Airport Drop & Pickup",
+    "Mangalore Railway Station Drop & Pickup",
+    "Udupi Drop & Pickup"
+  ];
+
+  const cabs = [
+    "Swift Dzire",
+    "Toyota Etios",
+    "Ertiga Cab",
+    "Toyota Crysta",
+    "Tempo Traveller",
+    "Arabian Tempo Traveller"
   ];
 
   return (
     <section id="cabs" className="relative py-24 md:py-32 overflow-hidden bg-[#0a0f1d]">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-start">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -42,21 +38,37 @@ export default function CabServices() {
               Premium Cab <span className="text-orange-400">Services</span>
             </h2>
             <p className="mt-6 text-lg text-zinc-400 leading-relaxed">
-              Whether you need a quick airport transfer or a multi-day outstation vehicle, our modern fleet and professional drivers guarantee a smooth journey.
+              We offer reliable outstation cab services, local trips, and seamless airport/railway station drops.
             </p>
             
-            <div className="mt-10 grid gap-8 sm:grid-cols-2">
-              {features.map((feature, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 border border-orange-500/20">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-                    <p className="mt-2 text-sm text-zinc-400">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-4">
+                  <MapIcon className="text-orange-400 h-5 w-5" /> Drop & Pickup
+                </h3>
+                <ul className="space-y-3">
+                  {dropServices.map((service, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-zinc-400 text-sm">
+                      <div className="h-1.5 w-1.5 rounded-full bg-orange-400 mt-1.5 shrink-0" />
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-white flex items-center gap-2 mb-4">
+                  <Car className="text-orange-400 h-5 w-5" /> Our Fleet
+                </h3>
+                <ul className="space-y-3">
+                  {cabs.map((cab, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-zinc-400 text-sm">
+                      <ShieldCheck className="h-4 w-4 text-orange-400 shrink-0" />
+                      <span>{cab}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             <div className="mt-12 flex gap-4">

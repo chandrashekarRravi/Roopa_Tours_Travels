@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 
+import Link from "next/link";
+
 export default function Navbar() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -17,7 +19,7 @@ export default function Navbar() {
     } else {
       setHidden(false);
     }
-    
+
     if (latest > 50) {
       setScrolled(true);
     } else {
@@ -26,10 +28,11 @@ export default function Navbar() {
   });
 
   const links = [
-    { name: "Home", href: "#" },
-    { name: "Packages", href: "#packages" },
-    { name: "Cab Services", href: "#cabs" },
-    { name: "Destinations", href: "#destinations" },
+    { name: "Home", href: "/" },
+    { name: "Packages", href: "/#packages" },
+    { name: "Cab Services", href: "/#cabs" },
+    { name: "Working Process", href: "/working-process" },
+    { name: "Destinations", href: "/#destinations" },
   ];
 
   return (
@@ -41,23 +44,22 @@ export default function Navbar() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${
-          scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+          }`}
       >
-        <div className="font-playfair text-xl font-bold tracking-tight text-white md:text-2xl">
+        <Link href="/" className="font-playfair text-xl font-bold tracking-tight text-white md:text-2xl">
           Roopa <span className="text-orange-400">Travels</span>
-        </div>
+        </Link>
 
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
               className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
           <a
             href="tel:+911234567890"
@@ -81,14 +83,14 @@ export default function Navbar() {
         <div className="fixed inset-0 z-40 bg-[#0f172a] pt-24 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-xl">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="font-medium text-zinc-300 hover:text-white"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <a
               href="tel:+911234567890"
