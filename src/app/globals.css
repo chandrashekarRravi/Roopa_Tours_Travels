@@ -7,9 +7,18 @@
   --color-brand-dark: #111111;
   --color-brand-green: #2C5F2D;
 
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-nohemi), sans-serif;
+  --font-serif: var(--font-nohemi), sans-serif;
+  --font-playfair: var(--font-nohemi), sans-serif;
+  --font-nohemi: var(--font-nohemi), sans-serif;
+
+  /* Font weight overrides based on user request */
+  --font-weight-light: 200;
+  --font-weight-normal: 300;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 800;
 }
+
 
 :root {
   --background: #050505;

@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Car, Plane, Map as MapIcon, ShieldCheck } from "lucide-react";
+import { Car, Map as MapIcon, ShieldCheck, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CabServices() {
   const dropServices = [
@@ -71,40 +72,56 @@ export default function CabServices() {
               </div>
             </div>
 
-            <div className="mt-12 flex gap-4">
+            <div className="mt-12 flex flex-wrap gap-4">
               <a href="https://wa.me/911234567890" target="_blank" rel="noreferrer" className="rounded-full bg-green-500 px-8 py-3.5 font-medium text-white shadow-lg shadow-green-500/30 transition hover:bg-green-600">
                 Book via WhatsApp
               </a>
+              <Link 
+                href="/fleet"
+                className="rounded-full bg-white/10 px-8 py-3.5 font-medium text-white shadow-lg border border-white/20 transition hover:bg-white/20 flex items-center gap-2 group"
+              >
+                Explore Fleet <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="relative h-[400px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10"
-          >
-            <Image
-              src="/images/mangalore_cab.png"
-              alt="Premium cab service"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8 backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-2xl">
-              <div className="flex justify-between items-center">
-                <div>
-                  <div className="text-sm text-orange-400 font-medium uppercase tracking-wider">Fleet</div>
-                  <div className="text-2xl font-bold text-white mt-1">Sedans & SUVs</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm text-zinc-400">Starting from</div>
-                  <div className="text-2xl font-bold text-white">₹15/km</div>
+          <Link href="/fleet" className="block relative h-[400px] lg:h-[600px] w-full group">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 cursor-pointer"
+            >
+              <Image
+                src="/images/mangalore_cab.png"
+                alt="Premium cab service"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity group-hover:opacity-80" />
+              
+              {/* Overlay hint */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="bg-orange-500/90 text-white px-6 py-3 rounded-full font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
+                  <Car className="h-5 w-5" /> View Fleet Details
+                </span>
+              </div>
+
+              <div className="absolute bottom-8 left-8 right-8 backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-2xl transition-transform duration-300 group-hover:translate-y-2">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="text-sm text-orange-400 font-medium uppercase tracking-wider">Fleet</div>
+                    <div className="text-2xl font-bold text-white mt-1">Sedans & SUVs</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-zinc-400">Starting from</div>
+                    <div className="text-2xl font-bold text-white">₹15/km</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </Link>
         </div>
       </div>
     </section>

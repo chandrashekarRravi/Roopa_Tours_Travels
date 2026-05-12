@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+const nohemi = localFont({
+  src: "../../public/fonts/Nohemi-Font/Nohemi-VF-BF6438cc58ad63d.ttf",
+  variable: "--font-nohemi",
+  weight: "100 900",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${nohemi.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0f172a] text-zinc-50 font-sans selection:bg-orange-500/30">
         <SmoothScroll>
