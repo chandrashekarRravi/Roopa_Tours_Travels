@@ -94,7 +94,7 @@ export default function CabServices() {
               className="relative h-full w-full rounded-3xl overflow-hidden border border-white/10 cursor-pointer"
             >
               <Image
-                src="/images/mangalore_cab.png"
+                src="/images/cab.png"
                 alt="Premium cab service"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

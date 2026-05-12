@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const destinations = [
-  { name: "Gokarna", image: "/images/gokarna_beach.png", colSpan: "col-span-1 md:col-span-2", rowSpan: "row-span-2" },
-  { name: "Hampi", image: "/images/hampi_temple.png", colSpan: "col-span-1", rowSpan: "row-span-1" },
-  { name: "Coorg", image: "/images/karnataka_hero.png", colSpan: "col-span-1", rowSpan: "row-span-1" },
+  { name: "Gokarna", image: "/images/image.png", colSpan: "col-span-1 md:col-span-2", rowSpan: "row-span-2" },
+  { name: "Hampi", image: "/images/hampi.png", colSpan: "col-span-1", rowSpan: "row-span-1" },
+  { name: "Coorg", image: "/images/coorg.png", colSpan: "col-span-1", rowSpan: "row-span-1" },
 ];
 
 export default function Destinations() {

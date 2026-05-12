@@ -18,13 +18,16 @@ export default function Hero() {
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black">
       <motion.div style={{ y, opacity }} className="absolute inset-0 h-full w-full">
-        <Image
-          src="/images/karnataka_hero.png"
-          alt="Karnataka landscape"
-          fill
-          className="object-cover opacity-80"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover opacity-80"
+        >
+          <source src="/video/intro.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#0f172a]" />
       </motion.div>
 
