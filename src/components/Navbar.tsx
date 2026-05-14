@@ -44,11 +44,11 @@ export default function Navbar() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${scrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${scrolled ? "bg-[#393e41]/80 backdrop-blur-md border-b border-[#f6f7eb]/10" : "bg-transparent"
           }`}
       >
-        <Link href="/" className="font-playfair text-xl font-bold tracking-tight text-white md:text-2xl">
-          Roopa <span className="text-orange-400">Travels</span>
+        <Link href="/" className="font-playfair text-xl font-bold tracking-tight text-[#f6f7eb] md:text-2xl">
+          Roopa <span className="text-[#e94f37]">Travels</span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -56,14 +56,14 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-zinc-300 transition-colors hover:text-white"
+              className="text-sm font-medium text-[#f6f7eb]/80 transition-colors hover:text-[#f6f7eb]"
             >
               {link.name}
             </Link>
           ))}
           <a
             href="tel:+911234567890"
-            className="flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-md transition-colors hover:bg-white/20"
+            className="flex items-center gap-2 rounded-full bg-[#f6f7eb]/10 px-5 py-2.5 text-sm font-medium text-[#f6f7eb] backdrop-blur-md transition-colors hover:bg-[#f6f7eb]/20"
           >
             <Phone className="h-4 w-4" />
             <span>Call Us</span>
@@ -72,7 +72,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-zinc-300 md:hidden"
+          className="p-2 text-[#f6f7eb]/80 md:hidden"
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -80,21 +80,21 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0f172a] pt-24 px-6 md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#393e41] pt-24 px-6 md:hidden">
           <div className="flex flex-col gap-6 text-xl">
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="font-medium text-zinc-300 hover:text-white"
+                className="font-medium text-[#f6f7eb]/80 hover:text-[#f6f7eb]"
               >
                 {link.name}
               </Link>
             ))}
             <a
               href="tel:+911234567890"
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 py-4 font-medium text-white"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#e94f37] py-4 font-medium text-[#f6f7eb]"
             >
               <Phone className="h-5 w-5" />
               <span>+91 123 456 7890</span>

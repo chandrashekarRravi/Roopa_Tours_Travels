@@ -11,7 +11,7 @@ const destinations = [
 
 export default function Destinations() {
   return (
-    <section id="destinations" className="py-24 md:py-32 bg-[#0a0f1d]">
+    <section id="destinations" className="py-24 md:py-32 bg-[#393e41]">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,10 +20,10 @@ export default function Destinations() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-playfair text-4xl font-bold md:text-5xl text-white">
-            Popular <span className="text-orange-400">Destinations</span>
+          <h2 className="font-playfair text-4xl font-bold md:text-5xl text-[#f6f7eb]">
+            Popular <span className="text-[#e94f37]">Destinations</span>
           </h2>
-          <p className="mt-4 text-zinc-400 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-[#f6f7eb]/70 text-lg max-w-2xl mx-auto">
             Explore the most sought-after locations in Karnataka, from serene beaches to lush hill stations.
           </p>
         </motion.div>
@@ -46,8 +46,8 @@ export default function Destinations() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-6 left-6">
-                <h3 className="font-playfair text-3xl font-bold text-white">{dest.name}</h3>
-                <p className="text-orange-400 mt-1 font-medium transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">Explore &#8594;</p>
+                <h3 className="font-playfair text-3xl font-bold text-[#f6f7eb]">{dest.name}</h3>
+                <p className="text-[#e94f37] mt-1 font-medium transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">Explore &#8594;</p>
               </div>
             </motion.div>
           ))}

@@ -42,20 +42,20 @@ export default function WorkingProcess() {
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 1080]);
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#111111] min-h-screen overflow-hidden">
+    <section ref={containerRef} className="relative w-full bg-[#393e41] min-h-screen overflow-hidden">
       
       {/* Optional: faint grid or noise background overlay for texture */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 pointer-events-none"></div>
 
       {/* Content */}
       <div className="relative z-10 w-full pt-32 pb-32">
-        <h2 className="text-center font-playfair text-5xl md:text-7xl font-bold text-white mb-32 drop-shadow-2xl">
+        <h2 className="text-center font-playfair text-5xl md:text-7xl font-bold text-[#f6f7eb] mb-32 drop-shadow-2xl">
           How Roopa Works
         </h2>
 
         <div className="flex flex-col space-y-32 md:space-y-48">
           {steps.map((step, idx) => {
-            const isLeft = idx % 2 !== 0; // Alternate: 0 = text on right, 1 = text on left, etc.
+            const isTextOnLeft = idx % 2 === 0;
 
             return (
             <motion.div 
@@ -72,9 +72,9 @@ export default function WorkingProcess() {
                  <div className="relative w-[120px] h-[120px] flex items-center justify-center">
                   <motion.div 
                     style={{ rotate }}
-                    className="absolute inset-0 rounded-full border-2 border-white/40 border-t-white border-l-transparent"
+                    className="absolute inset-0 rounded-full border-2 border-[#f6f7eb]/40 border-t-white border-l-transparent"
                   />
-                  <div className="w-[60px] h-[60px] rounded-full bg-[#dfff4f] flex items-center justify-center text-black font-bold text-xl shadow-[0_0_30px_rgba(223,255,79,0.4)]">
+                  <div className="w-[60px] h-[60px] rounded-full bg-[#e94f37] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_30px_rgba(233,79,55,0.4)]">
                     {step.id}
                   </div>
                 </div>
@@ -86,60 +86,22 @@ export default function WorkingProcess() {
                   {/* Rotating White Border */}
                   <motion.div 
                     style={{ rotate }}
-                    className="absolute inset-0 rounded-full border-2 border-white/40 border-t-white border-l-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+                    className="absolute inset-0 rounded-full border-2 border-[#f6f7eb]/40 border-t-white border-l-transparent drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
                   />
                   {/* Inner green circle */}
-                  <div className="w-[90px] h-[90px] rounded-full bg-[#dfff4f] flex items-center justify-center text-black font-bold text-3xl shadow-[0_0_40px_rgba(223,255,79,0.4)]">
+                  <div className="w-[90px] h-[90px] rounded-full bg-[#e94f37] flex items-center justify-center text-white font-bold text-3xl shadow-[0_0_40px_rgba(233,79,55,0.4)]">
                     {step.id}
                   </div>
                 </div>
               </div>
 
-              {/* Left Side */}
-              <div className={`w-full md:w-1/2 px-6 z-10 flex flex-col ${
-                !isLeft 
-                  ? 'items-center justify-center order-last md:order-none md:pr-20 lg:pr-32' // Image 
-                  : 'items-center md:items-end text-center md:text-right md:pr-20 lg:pr-32' // Text
-              }`}>
-                {!isLeft ? (
-                  // Image
-                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group border border-white/10">
-                    <Image src={step.image} alt={step.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                  </div>
-                ) : (
-                  // Text
+              {/* Left Column */}
+              <div className={`w-full md:w-1/2 px-6 z-10 flex flex-col items-center ${isTextOnLeft ? 'md:items-end text-center md:text-right md:pr-20 lg:pr-32' : 'justify-center md:pr-20 lg:pr-32'}`}>
+                {isTextOnLeft ? (
+                  // Text on Left
                   <>
                     <div 
-                      className="bg-[#dfff4f] text-black font-bold text-lg md:text-2xl py-4 md:py-5 w-max max-w-full mb-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 relative rounded-r-xl"
-                      style={{
-                        clipPath: "polygon(30px 0, 100% 0, 100% 100%, 30px 100%, 0 50%)",
-                        paddingLeft: "54px",
-                        paddingRight: "32px"
-                      }}
-                    >
-                      {step.title}
-                    </div>
-                    <div className="pr-0 md:pr-2">
-                      <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-md drop-shadow-md">
-                        {step.description}
-                      </p>
-                    </div>
-                  </>
-                )}
-              </div>
-
-              {/* Right Side */}
-              <div className={`w-full md:w-1/2 px-6 z-10 flex flex-col ${
-                !isLeft 
-                  ? 'items-center md:items-start text-center md:text-left md:pl-20 lg:pl-32' // Text
-                  : 'items-center justify-center order-last md:order-none md:pl-20 lg:pl-32' // Image
-              }`}>
-                {!isLeft ? (
-                  // Text
-                  <>
-                    <div 
-                      className="bg-[#dfff4f] text-black font-bold text-lg md:text-2xl py-4 md:py-5 w-max max-w-full mb-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 relative rounded-l-xl"
+                      className="bg-[#e94f37] text-white font-bold text-lg md:text-2xl py-4 md:py-5 w-max max-w-full mb-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 relative rounded-l-xl"
                       style={{
                         clipPath: "polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%)",
                         paddingLeft: "32px",
@@ -148,17 +110,47 @@ export default function WorkingProcess() {
                     >
                       {step.title}
                     </div>
-                    <div className="pl-0 md:pl-2">
-                      <p className="text-white/90 text-base md:text-lg leading-relaxed max-w-md drop-shadow-md">
+                    <div className="pr-0 md:pr-2">
+                      <p className="text-[#f6f7eb]/90 text-base md:text-lg leading-relaxed max-w-md drop-shadow-md">
                         {step.description}
                       </p>
                     </div>
                   </>
                 ) : (
-                  // Image
-                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group border border-white/10">
+                  // Image on Left
+                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group border border-[#f6f7eb]/10">
                     <Image src={step.image} alt={step.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div className="absolute inset-0 bg-[#393e41]/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column */}
+              <div className={`w-full md:w-1/2 px-6 z-10 flex flex-col items-center ${!isTextOnLeft ? 'md:items-start text-center md:text-left md:pl-20 lg:pl-32' : 'justify-center md:pl-20 lg:pl-32'}`}>
+                {!isTextOnLeft ? (
+                  // Text on Right
+                  <>
+                    <div 
+                      className="bg-[#e94f37] text-white font-bold text-lg md:text-2xl py-4 md:py-5 w-max max-w-full mb-6 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 relative rounded-r-xl"
+                      style={{
+                        clipPath: "polygon(30px 0, 100% 0, 100% 100%, 30px 100%, 0 50%)",
+                        paddingLeft: "54px",
+                        paddingRight: "32px"
+                      }}
+                    >
+                      {step.title}
+                    </div>
+                    <div className="pl-0 md:pl-2">
+                      <p className="text-[#f6f7eb]/90 text-base md:text-lg leading-relaxed max-w-md drop-shadow-md">
+                        {step.description}
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  // Image on Right
+                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] group border border-[#f6f7eb]/10">
+                    <Image src={step.image} alt={step.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-[#393e41]/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   </div>
                 )}
               </div>

@@ -1,28 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #0A192F;
-  --color-brand-orange: #FF7B54;
-  --color-brand-beige: #F5E6E8;
-  --color-brand-dark: #111111;
-  --color-brand-green: #2C5F2D;
+  /* User Requested Color Palette */
+  --color-brand-light: #f6f7eb;
+  --color-brand-accent: #e94f37;
+  --color-brand-dark: #393e41;
 
+  /* Overriding default Tailwind colors used in the app */
+  --color-orange-400: var(--color-brand-accent);
+  --color-orange-500: var(--color-brand-accent);
+  --color-orange-600: #d14631; /* Slightly darker for hover */
+
+  --color-white: var(--color-brand-light);
+  --color-zinc-50: var(--color-brand-light);
+  --color-zinc-300: #d8dbca; /* Adjusted from light */
+  --color-zinc-400: #bfc4b1; /* Adjusted from light */
+
+  --color-black: var(--color-brand-dark);
+  --color-zinc-900: var(--color-brand-dark);
+  --color-slate-900: var(--color-brand-dark);
+
+  /* Fonts */
   --font-sans: var(--font-nohemi), sans-serif;
   --font-serif: var(--font-nohemi), sans-serif;
   --font-playfair: var(--font-nohemi), sans-serif;
   --font-nohemi: var(--font-nohemi), sans-serif;
 
-  /* Font weight overrides based on user request */
+  /* Font weight overrides */
   --font-weight-light: 200;
   --font-weight-normal: 300;
   --font-weight-semibold: 600;
   --font-weight-bold: 800;
 }
 
-
 :root {
-  --background: #050505;
-  --foreground: #F5E6E8;
+  --background: var(--color-brand-dark);
+  --foreground: var(--color-brand-light);
 }
 
 body {
