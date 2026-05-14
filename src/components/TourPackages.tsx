@@ -10,7 +10,7 @@ const packages = [
     title: "Madikeri Tour Package",
     duration: "Customizable",
     location: "Madikeri",
-    image: "/images/karnataka_hero.png",
+    image: "/images/Madikeri.png",
     rating: 4.9,
     reviews: 124,
   },
@@ -19,7 +19,7 @@ const packages = [
     title: "Chikmagalur Tour Package",
     duration: "Customizable",
     location: "Chikmagalur",
-    image: "/images/hampi_temple.png",
+    image: "/images/chikmagalur.png",
     rating: 5.0,
     reviews: 89,
   },
@@ -28,7 +28,7 @@ const packages = [
     title: "Temple Tour Package",
     duration: "Customizable",
     location: "Various Temples",
-    image: "/images/gokarna_beach.png",
+    image: "/images/Various Temples.png",
     rating: 4.8,
     reviews: 215,
   },
@@ -37,7 +37,7 @@ const packages = [
     title: "Coastal Tour Package in Karnataka",
     duration: "Customizable",
     location: "Karnataka Coast",
-    image: "/images/karnataka_hero.png",
+    image: "/images/Coastal.png",
     rating: 4.9,
     reviews: 132,
   },
@@ -46,7 +46,7 @@ const packages = [
     title: "Mangalore Local One Day Temple Tour",
     duration: "1 Day",
     location: "Mangalore",
-    image: "/images/hampi_temple.png",
+    image: "/images/Mangalore.png",
     rating: 4.9,
     reviews: 210,
   },
@@ -55,7 +55,7 @@ const packages = [
     title: "Mangalore Local Trips",
     duration: "Flexible",
     location: "Mangalore & Suroundings",
-    image: "/images/gokarna_beach.png",
+    image: "/images/Mangalore & Suroundings.png",
     rating: 4.8,
     reviews: 145,
   },
@@ -114,7 +114,7 @@ export default function TourPackages() {
                   <span className="text-xs font-medium text-[#f6f7eb]">{pkg.rating} ({pkg.reviews})</span>
                 </div>
               </div>
-              
+
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-4 text-sm text-[#f6f7eb]/70 mb-3">
                   <div className="flex items-center gap-1.5">
@@ -122,14 +122,14 @@ export default function TourPackages() {
                     {pkg.duration}
                   </div>
                 </div>
-                
+
                 <h3 className="font-playfair text-2xl font-semibold text-[#f6f7eb] mb-2">{pkg.title}</h3>
-                
+
                 <div className="flex items-start gap-2 text-[#f6f7eb]/70 text-sm mb-6">
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#e94f37]" />
                   <span>{pkg.location}</span>
                 </div>
-                
+
                 <a href="#contact" className="inline-flex w-full justify-center items-center rounded-xl bg-[#f6f7eb]/10 px-4 py-3 font-medium text-[#f6f7eb] transition-colors hover:bg-[#e94f37] hover:text-[#f6f7eb]">
                   Enquire Now
                 </a>

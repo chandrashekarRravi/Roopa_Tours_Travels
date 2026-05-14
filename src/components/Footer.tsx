@@ -34,7 +34,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[#f6f7eb]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#f6f7eb]0">
           <p>&copy; {new Date().getFullYear()} Roopa Tours & Travels Mangalore. All rights reserved.</p>
-          <p>Designed for Luxury</p>
+          <p>Designed by weandyou</p>
         </div>
       </div>
     </footer>
