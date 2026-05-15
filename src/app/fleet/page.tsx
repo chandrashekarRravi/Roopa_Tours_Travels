@@ -74,12 +74,12 @@ export default function FleetPage() {
                     </div>
                   </div>
                   <a 
-                    href="https://wa.me/911234567890" 
+                    href="https://wa.me/916366564847" 
                     target="_blank" 
                     rel="noreferrer" 
                     className="w-full text-center rounded-full bg-[#e94f37] px-6 py-3 font-medium text-[#f6f7eb] shadow-lg shadow-orange-500/20 transition hover:bg-[#e94f37]"
                   >
-                    Book Now
+                    Get Quote
                   </a>
                 </div>
               </div>

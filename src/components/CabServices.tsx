@@ -41,7 +41,7 @@ export default function CabServices() {
             <p className="mt-6 text-lg text-[#f6f7eb]/70 leading-relaxed">
               We offer reliable outstation cab services, local trips, and seamless airport/railway station drops.
             </p>
-            
+
             <div className="mt-10 grid gap-6 sm:grid-cols-2">
               <div>
                 <h3 className="text-xl font-bold text-[#f6f7eb] flex items-center gap-2 mb-4">
@@ -73,10 +73,10 @@ export default function CabServices() {
             </div>
 
             <div className="mt-12 flex flex-wrap gap-4">
-              <a href="https://wa.me/911234567890" target="_blank" rel="noreferrer" className="rounded-full bg-green-500 px-8 py-3.5 font-medium text-[#f6f7eb] shadow-lg shadow-green-500/30 transition hover:bg-green-600">
-                Book via WhatsApp
+              <a href="https://wa.me/916366564847" target="_blank" rel="noreferrer" className="rounded-full bg-green-500 px-8 py-3.5 font-medium text-[#f6f7eb] shadow-lg shadow-green-500/30 transition hover:bg-green-600">
+                Talk to Travel Expert
               </a>
-              <Link 
+              <Link
                 href="/fleet"
                 className="rounded-full bg-[#f6f7eb]/10 px-8 py-3.5 font-medium text-[#f6f7eb] shadow-lg border border-[#f6f7eb]/20 transition hover:bg-[#f6f7eb]/20 flex items-center gap-2 group"
               >
@@ -100,7 +100,7 @@ export default function CabServices() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity group-hover:opacity-80" />
-              
+
               {/* Overlay hint */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-[#e94f37]/90 text-[#f6f7eb] px-6 py-3 rounded-full font-medium shadow-xl backdrop-blur-sm flex items-center gap-2">
@@ -113,11 +113,11 @@ export default function CabServices() {
                   <div>
                     <div className="text-sm text-[#e94f37] font-medium uppercase tracking-wider">Fleet</div>
                     <div className="text-2xl font-bold text-[#f6f7eb] mt-1">Sedans & SUVs</div>
-                  </div>
-                  <div className="text-right">
+                  </div>{/* <div className="text-right">
                     <div className="text-sm text-[#f6f7eb]/70">Starting from</div>
                     <div className="text-2xl font-bold text-[#f6f7eb]">₹15/km</div>
-                  </div>
+                  </div> */}
+
                 </div>
               </div>
             </motion.div>

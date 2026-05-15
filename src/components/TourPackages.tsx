@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Clock, MapPin, Star } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Clock, MapPin, Star, X, CheckCircle2, Car, Map, Home, Info } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const packages = [
   {
@@ -13,6 +14,8 @@ const packages = [
     image: "/images/Madikeri.png",
     rating: 4.9,
     reviews: 124,
+    images: ["/images/Madikeri.png", "/images/coorg.png", "/images/karnataka_hero.png"],
+    description: "Experience the Scotland of India with our premium Madikeri package. From coffee plantations to misty hills.",
   },
   {
     id: 2,
@@ -22,6 +25,8 @@ const packages = [
     image: "/images/chikmagalur.png",
     rating: 5.0,
     reviews: 89,
+    images: ["/images/chikmagalur.png", "/images/coorg.png", "/images/karnataka_hero.png"],
+    description: "The coffee land of Karnataka awaits. Explore the Baba Budangiri hills and Mullayanagiri peak.",
   },
   {
     id: 3,
@@ -31,6 +36,8 @@ const packages = [
     image: "/images/Various Temples.png",
     rating: 4.8,
     reviews: 215,
+    images: ["/images/Various Temples.png", "/images/hampi.png", "/images/karnataka_hero.png"],
+    description: "A spiritual journey through the most sacred temples of Karnataka, perfectly planned for your peace of mind.",
   },
   {
     id: 4,
@@ -40,6 +47,8 @@ const packages = [
     image: "/images/Coastal.png",
     rating: 4.9,
     reviews: 132,
+    images: ["/images/Coastal.png", "/images/image.png", "/images/karnataka_hero.png"],
+    description: "Sun, sand, and serenity. Discover the beautiful coastline of Karnataka from Mangalore to Karwar.",
   },
   {
     id: 5,
@@ -49,6 +58,8 @@ const packages = [
     image: "/images/Mangalore.png",
     rating: 4.9,
     reviews: 210,
+    images: ["/images/Mangalore.png", "/images/mangalore_cab.png", "/images/karnataka_hero.png"],
+    description: "Cover all major temples in and around Mangalore city in a single day with our expert local guides.",
   },
   {
     id: 6,
@@ -58,10 +69,14 @@ const packages = [
     image: "/images/Mangalore & Suroundings.png",
     rating: 4.8,
     reviews: 145,
+    images: ["/images/Mangalore & Suroundings.png", "/images/mangalore_cab.png", "/images/karnataka_hero.png"],
+    description: "Custom local trips tailored to your interests, whether it's shopping, beaches, or local cuisine.",
   },
 ];
 
 export default function TourPackages() {
+  const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
+
   return (
     <section id="packages" className="py-24 md:py-32 bg-[#393e41]">
       <div className="container mx-auto px-6 max-w-7xl">
@@ -130,14 +145,146 @@ export default function TourPackages() {
                   <span>{pkg.location}</span>
                 </div>
 
-                <a href="#contact" className="inline-flex w-full justify-center items-center rounded-xl bg-[#f6f7eb]/10 px-4 py-3 font-medium text-[#f6f7eb] transition-colors hover:bg-[#e94f37] hover:text-[#f6f7eb]">
-                  Enquire Now
-                </a>
+                <div className="flex gap-3">
+                  <button 
+                    onClick={() => setSelectedPackage(pkg)}
+                    className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#e94f37] px-4 py-3 font-medium text-[#f6f7eb] transition-all hover:bg-[#e94f37]/80 hover:shadow-lg active:scale-95"
+                  >
+                    Explore
+                  </button>
+                  <a href="#contact" className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#f6f7eb]/10 px-4 py-3 font-medium text-[#f6f7eb] transition-colors hover:bg-[#f6f7eb]/20">
+                    Details
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Package Details Modal */}
+      <AnimatePresence>
+        {selectedPackage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-[#393e41]/90 backdrop-blur-md"
+            onClick={() => setSelectedPackage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#393e41] border border-[#f6f7eb]/10 rounded-[2rem] shadow-2xl p-6 md:p-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setSelectedPackage(null)}
+                className="absolute top-6 right-6 p-2 rounded-full bg-[#f6f7eb]/5 hover:bg-[#f6f7eb]/10 text-[#f6f7eb] transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                {/* Left Side: Images Grid */}
+                <div className="space-y-4">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden border border-[#f6f7eb]/10">
+                    <Image
+                      src={selectedPackage.image}
+                      alt={selectedPackage.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    {selectedPackage.images.map((img, i) => (
+                      <div key={i} className="relative h-24 md:h-32 rounded-xl overflow-hidden border border-[#f6f7eb]/10">
+                        <Image
+                          src={img}
+                          alt={`${selectedPackage.title} detail ${i}`}
+                          fill
+                          className="object-cover hover:scale-110 transition-transform duration-500 cursor-pointer"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Side: Details */}
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-2 text-[#e94f37] font-medium mb-2">
+                    <Star className="w-4 h-4 fill-[#e94f37]" />
+                    <span>{selectedPackage.rating} ({selectedPackage.reviews} Reviews)</span>
+                  </div>
+                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#f6f7eb] mb-4">
+                    {selectedPackage.title}
+                  </h2>
+                  <p className="text-[#f6f7eb]/70 text-lg mb-8 leading-relaxed">
+                    {selectedPackage.description}
+                  </p>
+
+                  <div className="space-y-6 mb-10">
+                    <h4 className="text-[#f6f7eb] font-semibold text-xl flex items-center gap-2">
+                      <Info className="w-5 h-5 text-[#e94f37]" />
+                      Package Inclusions
+                    </h4>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10">
+                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                          <Car className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-[#f6f7eb]">Pickup & Drop</p>
+                          <p className="text-sm text-[#f6f7eb]/60">Doorstep service from your preferred location.</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10">
+                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                          <Map className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-[#f6f7eb]">Itinerary Planning</p>
+                          <p className="text-sm text-[#f6f7eb]/60">Expertly crafted custom plans for the best experience.</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10 md:col-span-2">
+                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                          <Home className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-[#f6f7eb]">Stay Arrangements</p>
+                          <p className="text-sm text-[#f6f7eb]/60">Available upon request. We can handle all your accommodation needs if you'd like us to manage it from our side.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto flex flex-col sm:flex-row gap-4">
+                    <a 
+                      href={`https://wa.me/916366564847?text=Hi Roopa Tours, I'm interested in the ${selectedPackage.title}`}
+                      target="_blank"
+                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#e94f37] px-8 py-4 font-bold text-[#f6f7eb] transition-all hover:shadow-[0_0_30px_rgba(233,79,55,0.4)] active:scale-95"
+                    >
+                      Plan My Trip
+                    </a>
+                    <a 
+                      href="#contact"
+                      onClick={() => setSelectedPackage(null)}
+                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#f6f7eb]/10 px-8 py-4 font-bold text-[#f6f7eb] transition-colors hover:bg-[#f6f7eb]/20"
+                    >
+                      Inquire Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

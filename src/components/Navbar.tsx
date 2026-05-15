@@ -62,7 +62,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+911234567890"
+            href="tel:+916366564847"
             className="flex items-center gap-2 rounded-full bg-[#f6f7eb]/10 px-5 py-2.5 text-sm font-medium text-[#f6f7eb] backdrop-blur-md transition-colors hover:bg-[#f6f7eb]/20"
           >
             <Phone className="h-4 w-4" />
@@ -93,11 +93,11 @@ export default function Navbar() {
               </Link>
             ))}
             <a
-              href="tel:+911234567890"
+              href="tel:+916366564847"
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#e94f37] py-4 font-medium text-[#f6f7eb]"
             >
               <Phone className="h-5 w-5" />
-              <span>+91 123 456 7890</span>
+              <span>+91 63665 64847</span>
             </a>
           </div>
         </div>

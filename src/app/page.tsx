@@ -20,7 +20,7 @@ export default function Home() {
       
       {/* Sticky WhatsApp CTA */}
       <a
-        href="https://wa.me/911234567890"
+        href="https://wa.me/916366564847"
         target="_blank"
         rel="noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center p-4 rounded-full bg-green-500 text-[#f6f7eb] shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:scale-110 hover:shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-all duration-300"
