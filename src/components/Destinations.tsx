@@ -13,19 +13,19 @@ const destinations = [
 
 export default function Destinations() {
   return (
-    <section id="destinations" className="py-24 md:py-32 bg-[#393e41]">
+    <section id="destinations" className="py-24 md:py-32 bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="font-playfair text-4xl font-bold md:text-5xl text-[#f6f7eb]">
-            Trip <span className="text-[#e94f37]">Gallery</span>
+          <h2 className="font-playfair text-4xl font-bold md:text-5xl text-[#FFFFFF]">
+            Trip <span className="text-[#EAFFBF]">Gallery</span>
           </h2>
-          <p className="mt-4 text-[#f6f7eb]/70 text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-[#FFFFFF]/70 text-lg max-w-2xl mx-auto">
             Glimpses of the beautiful journeys we've facilitated. Every trip is a story waiting to be told.
           </p>
         </motion.div>
@@ -36,9 +36,9 @@ export default function Destinations() {
               key={idx}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`relative rounded-[2.5rem] overflow-hidden group ${dest.colSpan} ${dest.rowSpan} border border-[#f6f7eb]/10`}
+              className={`relative rounded-[2.5rem] overflow-hidden group ${dest.colSpan} ${dest.rowSpan} border border-[#FFFFFF]/10`}
             >
               <Image
                 src={dest.image}
@@ -46,14 +46,14 @@ export default function Destinations() {
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#393e41] via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0E14CC] via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end">
                 <div className="overflow-hidden">
-                  <h3 className="font-playfair text-2xl md:text-3xl font-bold text-[#f6f7eb] transform translate-y-0 transition-transform duration-500">
+                  <h3 className="font-playfair text-2xl md:text-3xl font-bold text-[#FFFFFF] transform translate-y-0 transition-transform duration-500">
                     {dest.name}
                   </h3>
-                  <div className="flex items-center gap-2 text-[#e94f37] font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="flex items-center gap-2 text-[#EAFFBF] font-medium transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     <span>View Trip</span>
                     <span className="text-xl">→</span>
                   </div>
@@ -61,7 +61,7 @@ export default function Destinations() {
               </div>
 
               {/* Decorative corner element */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#e94f37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#EAFFBF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </motion.div>
           ))}
         </div>

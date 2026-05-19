@@ -2,19 +2,20 @@
 
 @theme {
   /* User Requested Color Palette */
-  --color-brand-light: #f6f7eb;
-  --color-brand-accent: #e94f37;
-  --color-brand-dark: #393e41;
+  --color-brand-light: #FFFFFF; /* Default White */
+  --color-brand-accent: #EAFFBF; /* Semi Main (Pale Yellow) */
+  --color-brand-secondary: #6BBECF; /* Aqua Blue */
+  --color-brand-dark: #0E14CC; /* Major (Deep Blue) */
 
   /* Overriding default Tailwind colors used in the app */
   --color-orange-400: var(--color-brand-accent);
   --color-orange-500: var(--color-brand-accent);
-  --color-orange-600: #d14631; /* Slightly darker for hover */
+  --color-orange-600: #d4e8a3; /* Slightly darker for hover */
 
   --color-white: var(--color-brand-light);
   --color-zinc-50: var(--color-brand-light);
-  --color-zinc-300: #d8dbca; /* Adjusted from light */
-  --color-zinc-400: #bfc4b1; /* Adjusted from light */
+  --color-zinc-300: #e5e5e5; /* Adjusted from light */
+  --color-zinc-400: #cccccc; /* Adjusted from light */
 
   --color-black: var(--color-brand-dark);
   --color-zinc-900: var(--color-brand-dark);
@@ -45,7 +46,13 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-serif {
   font-family: var(--font-serif);
 }
 
@@ -58,7 +65,8 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 }
 
 /* Lenis recommended css */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -76,4 +84,16 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* Custom Brand Gradient Utilities */
+@utility text-gradient-brand {
+  background: linear-gradient(to right, var(--color-brand-accent), var(--color-brand-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility bg-gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand-dark), var(--color-brand-secondary));
 }

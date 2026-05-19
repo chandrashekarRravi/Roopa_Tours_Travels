@@ -4,7 +4,7 @@ import WorkingProcess from "@/components/WorkingProcess";
 
 export default function WorkingProcessPage() {
   return (
-    <main className="relative bg-[#393e41] min-h-screen selection:bg-[#e94f37]/30">
+    <main className="relative bg-[#0E14CC] min-h-screen selection:bg-[#EAFFBF]/30">
       <Navbar />
       <div className="pt-20">
         <WorkingProcess />

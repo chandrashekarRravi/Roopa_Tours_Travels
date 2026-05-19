@@ -25,7 +25,7 @@ export default function RootLayout({
       lang="en"
       className={`${nohemi.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#393e41] text-[#f6f7eb] font-sans selection:bg-[#e94f37]/30">
+      <body className="min-h-full flex flex-col bg-[#0E14CC] text-[#0E14CC] font-sans selection:bg-[#EAFFBF]/30">
         <SmoothScroll>
           {children}
         </SmoothScroll>

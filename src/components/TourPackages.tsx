@@ -78,30 +78,30 @@ export default function TourPackages() {
   const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
 
   return (
-    <section id="packages" className="py-24 md:py-32 bg-[#393e41]">
+    <section id="packages" className="py-24 md:py-32 bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <h2 className="font-playfair text-4xl font-bold md:text-5xl text-[#f6f7eb]">
-              Curated <span className="text-[#e94f37]">Experiences</span>
+            <h2 className="font-playfair text-4xl font-bold md:text-5xl text-[#FFFFFF]">
+              Curated <span className="text-[#EAFFBF]">Experiences</span>
             </h2>
-            <p className="mt-4 text-[#f6f7eb]/70 text-lg">
+            <p className="mt-4 text-[#FFFFFF]/70 text-lg">
               Discover the hidden gems of Karnataka with our meticulously crafted tour packages. From ancient temples to pristine beaches.
             </p>
           </motion.div>
           <motion.a
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             href="#contact"
-            className="shrink-0 border-b-2 border-[#e94f37] pb-1 text-[#e94f37] font-medium hover:text-[#e94f37] hover:border-[#e94f37] transition-colors"
+            className="shrink-0 border-b-2 border-[#EAFFBF] pb-1 text-[#EAFFBF] font-medium hover:text-[#EAFFBF] hover:border-[#EAFFBF] transition-colors"
           >
             Request Custom Tour
           </motion.a>
@@ -113,9 +113,9 @@ export default function TourPackages() {
               key={pkg.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: false, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group relative rounded-3xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10 overflow-hidden hover:bg-[#f6f7eb]/10 transition-colors"
+              className="group relative rounded-3xl bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 overflow-hidden hover:bg-[#FFFFFF]/10 transition-colors"
             >
               <div className="relative h-64 w-full overflow-hidden">
                 <Image
@@ -124,35 +124,35 @@ export default function TourPackages() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-4 right-4 bg-[#393e41]/60 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 border border-[#f6f7eb]/20">
+                <div className="absolute top-4 right-4 bg-[#0E14CC]/60 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 border border-[#FFFFFF]/20">
                   <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                  <span className="text-xs font-medium text-[#f6f7eb]">{pkg.rating} ({pkg.reviews})</span>
+                  <span className="text-xs font-medium text-[#FFFFFF]">{pkg.rating} ({pkg.reviews})</span>
                 </div>
               </div>
 
               <div className="p-6 md:p-8">
-                <div className="flex items-center gap-4 text-sm text-[#f6f7eb]/70 mb-3">
+                <div className="flex items-center gap-4 text-sm text-[#FFFFFF]/70 mb-3">
                   <div className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-[#e94f37]" />
+                    <Clock className="w-4 h-4 text-[#EAFFBF]" />
                     {pkg.duration}
                   </div>
                 </div>
 
-                <h3 className="font-playfair text-2xl font-semibold text-[#f6f7eb] mb-2">{pkg.title}</h3>
+                <h3 className="font-playfair text-2xl font-semibold text-[#FFFFFF] mb-2">{pkg.title}</h3>
 
-                <div className="flex items-start gap-2 text-[#f6f7eb]/70 text-sm mb-6">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#e94f37]" />
+                <div className="flex items-start gap-2 text-[#FFFFFF]/70 text-sm mb-6">
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-[#EAFFBF]" />
                   <span>{pkg.location}</span>
                 </div>
 
                 <div className="flex gap-3">
                   <button 
                     onClick={() => setSelectedPackage(pkg)}
-                    className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#e94f37] px-4 py-3 font-medium text-[#f6f7eb] transition-all hover:bg-[#e94f37]/80 hover:shadow-lg active:scale-95"
+                    className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#EAFFBF] px-4 py-3 font-medium text-[#0E14CC] transition-all hover:bg-[#EAFFBF]/80 hover:shadow-lg active:scale-95"
                   >
                     Explore
                   </button>
-                  <a href="#contact" className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#f6f7eb]/10 px-4 py-3 font-medium text-[#f6f7eb] transition-colors hover:bg-[#f6f7eb]/20">
+                  <a href="#contact" className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#FFFFFF]/10 px-4 py-3 font-medium text-[#FFFFFF] transition-colors hover:bg-[#FFFFFF]/20">
                     Details
                   </a>
                 </div>
@@ -169,19 +169,19 @@ export default function TourPackages() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-[#393e41]/90 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-[#0E14CC]/90 backdrop-blur-md"
             onClick={() => setSelectedPackage(null)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#393e41] border border-[#f6f7eb]/10 rounded-[2rem] shadow-2xl p-6 md:p-10"
+              className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#0E14CC] border border-[#FFFFFF]/10 rounded-[2rem] shadow-2xl p-6 md:p-10"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
                 onClick={() => setSelectedPackage(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-[#f6f7eb]/5 hover:bg-[#f6f7eb]/10 text-[#f6f7eb] transition-colors"
+                className="absolute top-6 right-6 p-2 rounded-full bg-[#FFFFFF]/5 hover:bg-[#FFFFFF]/10 text-[#FFFFFF] transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -189,7 +189,7 @@ export default function TourPackages() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 {/* Left Side: Images Grid */}
                 <div className="space-y-4">
-                  <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden border border-[#f6f7eb]/10">
+                  <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden border border-[#FFFFFF]/10">
                     <Image
                       src={selectedPackage.image}
                       alt={selectedPackage.title}
@@ -199,7 +199,7 @@ export default function TourPackages() {
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     {selectedPackage.images.map((img, i) => (
-                      <div key={i} className="relative h-24 md:h-32 rounded-xl overflow-hidden border border-[#f6f7eb]/10">
+                      <div key={i} className="relative h-24 md:h-32 rounded-xl overflow-hidden border border-[#FFFFFF]/10">
                         <Image
                           src={img}
                           alt={`${selectedPackage.title} detail ${i}`}
@@ -213,51 +213,51 @@ export default function TourPackages() {
 
                 {/* Right Side: Details */}
                 <div className="flex flex-col">
-                  <div className="flex items-center gap-2 text-[#e94f37] font-medium mb-2">
-                    <Star className="w-4 h-4 fill-[#e94f37]" />
+                  <div className="flex items-center gap-2 text-[#EAFFBF] font-medium mb-2">
+                    <Star className="w-4 h-4 fill-[#EAFFBF]" />
                     <span>{selectedPackage.rating} ({selectedPackage.reviews} Reviews)</span>
                   </div>
-                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#f6f7eb] mb-4">
+                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4">
                     {selectedPackage.title}
                   </h2>
-                  <p className="text-[#f6f7eb]/70 text-lg mb-8 leading-relaxed">
+                  <p className="text-[#FFFFFF]/70 text-lg mb-8 leading-relaxed">
                     {selectedPackage.description}
                   </p>
 
                   <div className="space-y-6 mb-10">
-                    <h4 className="text-[#f6f7eb] font-semibold text-xl flex items-center gap-2">
-                      <Info className="w-5 h-5 text-[#e94f37]" />
+                    <h4 className="text-[#FFFFFF] font-semibold text-xl flex items-center gap-2">
+                      <Info className="w-5 h-5 text-[#EAFFBF]" />
                       Package Inclusions
                     </h4>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10">
-                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#FFFFFF]/5 border border-[#FFFFFF]/10">
+                        <div className="p-3 rounded-xl bg-[#EAFFBF]/10 text-[#EAFFBF]">
                           <Car className="w-6 h-6" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#f6f7eb]">Pickup & Drop</p>
-                          <p className="text-sm text-[#f6f7eb]/60">Doorstep service from your preferred location.</p>
+                          <p className="font-semibold text-[#FFFFFF]">Pickup & Drop</p>
+                          <p className="text-sm text-[#FFFFFF]/60">Doorstep service from your preferred location.</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10">
-                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#FFFFFF]/5 border border-[#FFFFFF]/10">
+                        <div className="p-3 rounded-xl bg-[#EAFFBF]/10 text-[#EAFFBF]">
                           <Map className="w-6 h-6" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#f6f7eb]">Itinerary Planning</p>
-                          <p className="text-sm text-[#f6f7eb]/60">Expertly crafted custom plans for the best experience.</p>
+                          <p className="font-semibold text-[#FFFFFF]">Itinerary Planning</p>
+                          <p className="text-sm text-[#FFFFFF]/60">Expertly crafted custom plans for the best experience.</p>
                         </div>
                       </div>
 
-                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#f6f7eb]/5 border border-[#f6f7eb]/10 md:col-span-2">
-                        <div className="p-3 rounded-xl bg-[#e94f37]/10 text-[#e94f37]">
+                      <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 md:col-span-2">
+                        <div className="p-3 rounded-xl bg-[#EAFFBF]/10 text-[#EAFFBF]">
                           <Home className="w-6 h-6" />
                         </div>
                         <div>
-                          <p className="font-semibold text-[#f6f7eb]">Stay Arrangements</p>
-                          <p className="text-sm text-[#f6f7eb]/60">Available upon request. We can handle all your accommodation needs if you'd like us to manage it from our side.</p>
+                          <p className="font-semibold text-[#FFFFFF]">Stay Arrangements</p>
+                          <p className="text-sm text-[#FFFFFF]/60">Available upon request. We can handle all your accommodation needs if you'd like us to manage it from our side.</p>
                         </div>
                       </div>
                     </div>
@@ -267,14 +267,14 @@ export default function TourPackages() {
                     <a 
                       href={`https://wa.me/916366564847?text=Hi Roopa Tours, I'm interested in the ${selectedPackage.title}`}
                       target="_blank"
-                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#e94f37] px-8 py-4 font-bold text-[#f6f7eb] transition-all hover:shadow-[0_0_30px_rgba(233,79,55,0.4)] active:scale-95"
+                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#EAFFBF] px-8 py-4 font-bold text-[#0E14CC] transition-all hover:shadow-[0_0_30px_rgba(233,79,55,0.4)] active:scale-95"
                     >
                       Plan My Trip
                     </a>
                     <a 
                       href="#contact"
                       onClick={() => setSelectedPackage(null)}
-                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#f6f7eb]/10 px-8 py-4 font-bold text-[#f6f7eb] transition-colors hover:bg-[#f6f7eb]/20"
+                      className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#FFFFFF]/10 px-8 py-4 font-bold text-[#FFFFFF] transition-colors hover:bg-[#FFFFFF]/20"
                     >
                       Inquire Details
                     </a>
