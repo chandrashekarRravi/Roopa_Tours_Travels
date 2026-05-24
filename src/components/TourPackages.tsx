@@ -22,10 +22,10 @@ const packages = [
     title: "Chikmagalur Tour Package",
     duration: "Customizable",
     location: "Chikmagalur",
-    image: "/images/chikmagalur.png",
+    image: "/images/Chikmagalur.png",
     rating: 5.0,
     reviews: 89,
-    images: ["/images/chikmagalur.png", "/images/coorg.png", "/images/karnataka_hero.png"],
+    images: ["/images/Chikmagalur.png", "/images/coorg.png", "/images/karnataka_hero.png"],
     description: "The coffee land of Karnataka awaits. Explore the Baba Budangiri hills and Mullayanagiri peak.",
   },
   {

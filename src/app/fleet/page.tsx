@@ -17,17 +17,17 @@ export default function FleetPage() {
   return (
     <main className="min-h-screen bg-[#0E14CC]">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#EAFFBF]/10 blur-[120px] rounded-full pointer-events-none" />
-        
+
         <div className="container mx-auto max-w-7xl relative z-10">
           <Link href="/#cabs" className="inline-flex items-center text-[#FFFFFF]/70 hover:text-[#FFFFFF] transition mb-8 group">
             <ArrowLeft className="h-4 w-4 mr-2 transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
-          
+
           <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFF] max-w-2xl">
             Our Premium <span className="text-[#EAFFBF]">Fleet</span>
           </h1>
@@ -66,17 +66,17 @@ export default function FleetPage() {
                       </div>
                       {car.capacity}
                     </div>
-                    <div className="flex items-center text-[#FFFFFF]/70">
+                    {/* <div className="flex items-center text-[#FFFFFF]/70">
                       <div className="h-8 w-8 rounded-full bg-[#FFFFFF]/5 flex items-center justify-center mr-3">
                         <Tag className="h-4 w-4 text-[#EAFFBF]" />
                       </div>
                       {car.price}
-                    </div>
+                    </div> */}
                   </div>
-                  <a 
-                    href="https://wa.me/916366564847" 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  <a
+                    href="https://wa.me/916366564847"
+                    target="_blank"
+                    rel="noreferrer"
                     className="w-full text-center rounded-full bg-[#EAFFBF] px-6 py-3 font-medium text-[#0E14CC] shadow-lg shadow-orange-500/20 transition hover:bg-[#EAFFBF]"
                   >
                     Get Quote

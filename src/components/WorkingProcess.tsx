@@ -15,7 +15,7 @@ const steps = [
     id: "02",
     title: "Step 2: Select Your Vehicle",
     description: "From luxury sedans to spacious tempo travellers, pick the perfect ride for your group size and comfort requirements.",
-    image: "/images/swift dzire.png"
+    image: "/images/Swift Dzire.png"
   },
   {
     id: "03",
