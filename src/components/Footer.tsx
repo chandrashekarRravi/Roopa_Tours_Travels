@@ -22,14 +22,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="text-[#FFFFFF] font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-[#FFFFFF]/70 text-sm">
               <li><a href="#" className="hover:text-[#EAFFBF] transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-[#EAFFBF] transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-[#EAFFBF] transition-colors">Cancellation Policy</a></li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <div className="pt-8 border-t border-[#FFFFFF]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#FFFFFF]0">

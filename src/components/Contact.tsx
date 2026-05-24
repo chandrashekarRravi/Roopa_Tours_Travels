@@ -29,11 +29,45 @@ export default function Contact() {
     dropLocation: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (name === "service") setService(value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (res.ok) {
+        setSubmitStatus("success");
+        setStep(1); // Go back to start
+        setFormData({
+          firstName: "", lastName: "", phone: "", service: "",
+          package: "", dateFrom: "", dateTo: "", pickupTime: "",
+          pickupLocation: "", dropLocation: "", message: ""
+        });
+        setService("");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (err) {
+      console.error(err);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isStep1Valid = formData.firstName && formData.phone && service;
@@ -106,7 +140,19 @@ export default function Contact() {
               </div>
             </div>
 
-            <form className="flex-1 flex flex-col" onSubmit={(e) => e.preventDefault()}>
+            {submitStatus === "success" && (
+              <div className="mb-6 p-4 rounded-xl bg-green-500/20 border border-green-500/50 text-green-300">
+                Thank you! Your inquiry has been sent successfully. We will get back to you soon.
+              </div>
+            )}
+            
+            {submitStatus === "error" && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/20 border border-red-500/50 text-red-300">
+                Failed to send inquiry. Please try again or contact us via phone/WhatsApp.
+              </div>
+            )}
+
+            <form className="flex-1 flex flex-col" onSubmit={handleSubmit}>
               <AnimatePresence mode="wait">
                 {step === 1 ? (
                   <motion.div
@@ -187,10 +233,10 @@ export default function Contact() {
                             <input type="date" name="dateTo" onChange={handleInputChange} className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl px-4 py-3 text-[#FFFFFF] focus:outline-none focus:border-[#EAFFBF]" />
                           </div>
                         </div>
-                        <div>
+                        {/* <div>
                           <label className="block text-sm font-medium text-[#FFFFFF]/70 mb-2 flex items-center gap-2"><Clock className="w-4 h-4" /> Expected Pickup Time</label>
                           <input type="time" name="pickupTime" onChange={handleInputChange} className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl px-4 py-3 text-[#FFFFFF] focus:outline-none focus:border-[#EAFFBF]" />
-                        </div>
+                        </div> */}
                       </div>
                     ) : (
                       <div className="space-y-6">
@@ -220,8 +266,12 @@ export default function Contact() {
                     <div className="mt-auto pt-6">
                       <label className="block text-sm font-medium text-[#FFFFFF]/70 mb-2">Additional Message (Optional)</label>
                       <textarea rows={2} name="message" onChange={handleInputChange} className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl px-4 py-3 text-[#FFFFFF] focus:outline-none focus:border-[#EAFFBF] transition-colors" placeholder="Any specific requirements?"></textarea>
-                      <button type="submit" className="w-full mt-6 bg-[#EAFFBF] hover:bg-[#EAFFBF]/90 text-[#0E14CC] font-bold py-4 rounded-xl transition-all shadow-lg shadow-orange-500/20 active:scale-[0.98]">
-                        Get Quote
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className={`w-full mt-6 font-bold py-4 rounded-xl transition-all shadow-lg ${isSubmitting ? 'bg-[#FFFFFF]/10 text-[#FFFFFF]/50 cursor-not-allowed' : 'bg-[#EAFFBF] hover:bg-[#EAFFBF]/90 text-[#0E14CC] shadow-orange-500/20 active:scale-[0.98]'}`}
+                      >
+                        {isSubmitting ? 'Sending...' : 'Get Quote'}
                       </button>
                     </div>
                   </motion.div>
