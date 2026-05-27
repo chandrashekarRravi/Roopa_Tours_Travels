@@ -181,7 +181,7 @@ export default function TourPackages() {
             >
               <button 
                 onClick={() => setSelectedPackage(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-[#FFFFFF]/5 hover:bg-[#FFFFFF]/10 text-[#FFFFFF] transition-colors"
+                className="absolute top-4 right-4 z-50 md:top-6 md:right-6 p-2.5 rounded-full bg-[#0E14CC]/80 hover:bg-[#0E14CC] border border-[#FFFFFF]/20 text-[#FFFFFF] transition-colors shadow-xl backdrop-blur-md"
               >
                 <X className="w-6 h-6" />
               </button>
