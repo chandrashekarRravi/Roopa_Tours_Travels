@@ -13,6 +13,22 @@ const nohemi = localFont({
 export const metadata: Metadata = {
   title: "Roopa Tours & Travels | Premium Travel Agency Mangalore",
   description: "Experience luxury travel across Karnataka. Premium tour packages, airport cab services, and guided experiences.",
+  icons: {
+    icon: [
+      { url: "/roopa_favicon_16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/roopa_favicon_32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/roopa_favicon_48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+    apple: [
+      { url: "/roopa_apple_touch_icon_180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/roopa_google_site_icon_192x192.png", sizes: "192x192" },
+    ],
+  },
+  openGraph: {
+    images: [{ url: "/roopa_website_og_1200x630.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function RootLayout({

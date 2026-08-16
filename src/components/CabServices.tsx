@@ -26,7 +26,7 @@ export default function CabServices() {
   ];
 
   return (
-    <section id="Cab Services" className="relative py-24 md:py-32 overflow-hidden bg-[#0E14CC]">
+    <section id="cabs" className="relative py-24 md:py-32 overflow-hidden bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-start">
           <motion.div

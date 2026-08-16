@@ -73,7 +73,7 @@ export default function Contact() {
   const isStep1Valid = formData.firstName && formData.phone && service;
 
   return (
-    <section id="Contact Us" className="py-24 md:py-32 bg-[#0E14CC] relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-32 bg-[#0E14CC] relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">

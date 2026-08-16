@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
-
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -33,6 +33,7 @@ export default function Navbar() {
     { name: "Cab Services", href: "/#cabs" },
     { name: "Working Process", href: "/working-process" },
     { name: "Destinations", href: "/#destinations" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -47,9 +48,19 @@ export default function Navbar() {
         className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300 md:px-12 ${scrolled ? "bg-[#0E14CC]/80 backdrop-blur-md border-b border-[#FFFFFF]/10" : "bg-transparent"
           }`}
       >
-        <Link href="/" className="group font-playfair text-xl font-bold tracking-tight md:text-2xl">
-          <span className="text-[#FFFFFF] transition-colors group-hover:text-[#EAFFBF]">Roopa</span>{" "}
-          <span className="text-[#EAFFBF] transition-colors group-hover:text-[#FFFFFF]">Travels</span>
+        <Link href="/" className="group flex items-center gap-3">
+          <Image
+            src="/roopa_favicon_48x48.png"
+            alt="Roopa Travels Logo"
+            width={38}
+            height={38}
+            className="rounded-full ring-1 ring-[#EAFFBF]/30 group-hover:ring-[#EAFFBF]/70 transition-all duration-300"
+            priority
+          />
+          <span className="font-playfair text-xl font-bold tracking-tight md:text-2xl">
+            <span className="text-[#FFFFFF] transition-colors group-hover:text-[#EAFFBF]">Roopa</span>{" "}
+            <span className="text-[#EAFFBF] transition-colors group-hover:text-[#FFFFFF]">Travels</span>
+          </span>
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">

@@ -78,7 +78,7 @@ export default function TourPackages() {
   const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
 
   return (
-    <section id="Tour Packages" className="py-24 md:py-32 bg-[#0E14CC]">
+    <section id="packages" className="py-24 md:py-32 bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
           <motion.div
