@@ -78,7 +78,7 @@ export default function TourPackages() {
   const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
 
   return (
-    <section id="packages" className="py-24 md:py-32 bg-[#0E14CC]">
+    <section id="Tour Packages" className="py-24 md:py-32 bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
           <motion.div
@@ -146,7 +146,7 @@ export default function TourPackages() {
                 </div>
 
                 <div className="flex gap-3">
-                  <button 
+                  <button
                     onClick={() => setSelectedPackage(pkg)}
                     className="flex-1 inline-flex justify-center items-center rounded-xl bg-[#EAFFBF] px-4 py-3 font-medium text-[#0E14CC] transition-all hover:bg-[#EAFFBF]/80 hover:shadow-lg active:scale-95"
                   >
@@ -179,7 +179,7 @@ export default function TourPackages() {
               className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#0E14CC] border border-[#FFFFFF]/10 rounded-[2rem] shadow-2xl p-6 md:p-10"
               onClick={(e) => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setSelectedPackage(null)}
                 className="absolute top-4 right-4 z-50 md:top-6 md:right-6 p-2.5 rounded-full bg-[#0E14CC]/80 hover:bg-[#0E14CC] border border-[#FFFFFF]/20 text-[#FFFFFF] transition-colors shadow-xl backdrop-blur-md"
               >
@@ -229,7 +229,7 @@ export default function TourPackages() {
                       <Info className="w-5 h-5 text-[#EAFFBF]" />
                       Package Inclusions
                     </h4>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#FFFFFF]/5 border border-[#FFFFFF]/10">
                         <div className="p-3 rounded-xl bg-[#EAFFBF]/10 text-[#EAFFBF]">
@@ -264,14 +264,14 @@ export default function TourPackages() {
                   </div>
 
                   <div className="mt-auto flex flex-col sm:flex-row gap-4">
-                    <a 
+                    <a
                       href={`https://wa.me/916366564847?text=Hi Roopa Tours, I'm interested in the ${selectedPackage.title}`}
                       target="_blank"
                       className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#EAFFBF] px-8 py-4 font-bold text-[#0E14CC] transition-all hover:shadow-[0_0_30px_rgba(233,79,55,0.4)] active:scale-95"
                     >
                       Plan My Trip
                     </a>
-                    <a 
+                    <a
                       href="#contact"
                       onClick={() => setSelectedPackage(null)}
                       className="flex-1 inline-flex justify-center items-center rounded-2xl bg-[#FFFFFF]/10 px-8 py-4 font-bold text-[#FFFFFF] transition-colors hover:bg-[#FFFFFF]/20"

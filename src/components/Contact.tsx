@@ -73,7 +73,7 @@ export default function Contact() {
   const isStep1Valid = formData.firstName && formData.phone && service;
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#0E14CC] relative overflow-hidden">
+    <section id="Contact Us" className="py-24 md:py-32 bg-[#0E14CC] relative overflow-hidden">
       <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -145,7 +145,7 @@ export default function Contact() {
                 Thank you! Your inquiry has been sent successfully. We will get back to you soon.
               </div>
             )}
-            
+
             {submitStatus === "error" && (
               <div className="mb-6 p-4 rounded-xl bg-red-500/20 border border-red-500/50 text-red-300">
                 Failed to send inquiry. Please try again or contact us via phone/WhatsApp.
@@ -266,8 +266,8 @@ export default function Contact() {
                     <div className="mt-auto pt-6">
                       <label className="block text-sm font-medium text-[#FFFFFF]/70 mb-2">Additional Message (Optional)</label>
                       <textarea rows={2} name="message" onChange={handleInputChange} className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl px-4 py-3 text-[#FFFFFF] focus:outline-none focus:border-[#EAFFBF] transition-colors" placeholder="Any specific requirements?"></textarea>
-                      <button 
-                        type="submit" 
+                      <button
+                        type="submit"
                         disabled={isSubmitting}
                         className={`w-full mt-6 font-bold py-4 rounded-xl transition-all shadow-lg ${isSubmitting ? 'bg-[#FFFFFF]/10 text-[#FFFFFF]/50 cursor-not-allowed' : 'bg-[#EAFFBF] hover:bg-[#EAFFBF]/90 text-[#0E14CC] shadow-orange-500/20 active:scale-[0.98]'}`}
                       >

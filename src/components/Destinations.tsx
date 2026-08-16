@@ -13,7 +13,7 @@ const destinations = [
 
 export default function Destinations() {
   return (
-    <section id="destinations" className="py-24 md:py-32 bg-[#0E14CC]">
+    <section id="Destinations" className="py-24 md:py-32 bg-[#0E14CC]">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
