@@ -12,7 +12,7 @@ const nohemi = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL("https://www.roopatoursandtravels.com"),
   title: "Roopa Tours & Travels | Premium Travel Agency Mangalore",
   description: "Experience luxury travel across Karnataka. Premium tour packages, airport cab services, and guided experiences.",
   icons: {

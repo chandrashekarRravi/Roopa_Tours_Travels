@@ -19,7 +19,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": ["TravelAgency", "LocalBusiness"],
     "name": "Roopa Travels",
-    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://www.roopatoursandtravels.com/",
+    "url": "https://www.roopatoursandtravels.com/",
     "telephone": "+91 63665 64847",
     "address": {
       "@type": "PostalAddress",
