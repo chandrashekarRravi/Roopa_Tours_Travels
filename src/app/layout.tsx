@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
@@ -11,6 +12,7 @@ const nohemi = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: "Roopa Tours & Travels | Premium Travel Agency Mangalore",
   description: "Experience luxury travel across Karnataka. Premium tour packages, airport cab services, and guided experiences.",
   icons: {
@@ -42,6 +44,24 @@ export default function RootLayout({
       className={`${nohemi.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0E14CC] text-[#0E14CC] font-sans selection:bg-[#EAFFBF]/30">
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
         <SmoothScroll>
           {children}
         </SmoothScroll>

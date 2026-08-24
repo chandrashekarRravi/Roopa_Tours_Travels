@@ -3,6 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Roopa Travels Fleet — Sedan, SUV, Tempo Traveller",
+  description: "Explore the Roopa Travels fleet including comfortable sedans, SUVs and Tempo Travellers for local trips, airport transfers, outstation travel and tours from Mangalore.",
+};
 
 export default function FleetPage() {
   const fleetDetails = [

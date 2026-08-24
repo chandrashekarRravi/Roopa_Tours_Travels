@@ -6,11 +6,40 @@ import Destinations from "@/components/Destinations";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { Metadata } from "next";
+import Script from "next/script";
 
+export const metadata: Metadata = {
+  title: "Mangalore Cab & Tour Packages | Roopa Travels",
+  description: "Book reliable Mangalore cabs, airport taxis, outstation trips and customized tour packages with Roopa Travels. Explore Mangalore, Coorg, Udupi and more.",
+};
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["TravelAgency", "LocalBusiness"],
+    "name": "Roopa Travels",
+    "url": process.env.NEXT_PUBLIC_SITE_URL || "https://www.roopatoursandtravels.com/",
+    "telephone": "+91 63665 64847",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near Mangalore International Airport",
+      "addressLocality": "Mangalore",
+      "addressRegion": "Karnataka",
+      "postalCode": "574142",
+      "addressCountry": "IN"
+    },
+    "description": "Book reliable Mangalore cabs, airport taxis, outstation trips and customized tour packages with Roopa Travels. Explore Mangalore, Coorg, Udupi and more.",
+    "areaServed": ["Mangalore", "Coorg", "Udupi", "Karnataka"]
+  };
+
   return (
     <main className="relative bg-[#0E14CC] min-h-screen selection:bg-[#EAFFBF]/30">
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       <Hero />
       <CabServices />
